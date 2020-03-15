@@ -6,18 +6,16 @@
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "clean": "rimraf dist .cache",
     "clean:dist": "rimraf node_modules",
     "clean:all": "yarn clean:dist && yarn clean:pkg",
-    "lint:ts:cmd": "tslint -p tsconfig.json -c tslint.json",
-    "lint:ts": "yarn lint:ts:cmd 'src/**/*.tsx' 'src/**/*.ts'",
-    "lint:js": "eslint src/**/*.js",
-    "lint": "yarn lint:js && yarn lint:ts",
+    "lint:cmd": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "yarn lint:cmd 'src/**/*.tsx' 'src/**/*.ts'",
     "types": "tsc --noEmit -p .",
     "types:watch": "tsc --noEmit -p . --watch",
     "validate": "yarn types && yarn lint && yarn test",
-    "fix": "yarn lint:js --fix && yarn lint:ts --fix"
+    "lint:fix": "yarn lint --fix"
   },
   "keywords": [
     "starter",
@@ -76,7 +74,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint:ts:cmd --fix",
+      "yarn lint:cmd --fix",
       "yarn prettier --write"
     ],
     "src/**/*.{js,jsx}": [
