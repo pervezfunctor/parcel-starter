@@ -1,5 +1,3 @@
 import React from 'react'
 
-import { Hello } from './Hello'
-
-export const App = () => <Hello />
+export const App = () => <h1>Hello, World!</h1>
