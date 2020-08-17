@@ -27,16 +27,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es6"
   },
-  "include": ["src"],
-  "plugins": [
-    {
-      "name": "typescript-tslint-plugin",
-      "alwaysShowRuleFailuresAsWarnings": true,
-      "ignoreDefinitionFiles": false,
-      "configFile": "tslint.json",
-      "suppressWhileTypeErrorsPresent": true,
-      "jsEnable": true,
-      "mockTypeScriptVersion": false
-    }
-  ]
+  "include": ["src", "eslintrc.base.js"]
 }
