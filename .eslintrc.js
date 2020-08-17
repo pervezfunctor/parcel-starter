@@ -5,7 +5,12 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['plugin:react/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:react/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
@@ -13,7 +18,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    '@typescript-eslint/tslint',
     'react',
     'jest',
     'prettier',
@@ -247,6 +251,7 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/typedef': ['error', { arrowParameter: false }],
     '@typescript-eslint/naming-convention': [
       'error',
       { selector: 'typeLike', format: ['PascalCase'] },
@@ -281,23 +286,6 @@ module.exports = {
     'unicorn/filename-case': [
       'error',
       { cases: { camelCase: true, pascalCase: true } },
-    ],
-    '@typescript-eslint/tslint/config': [
-      'error',
-      {
-        rules: {
-          'no-dynamic-delete': true,
-          'no-inferred-empty-object-type': true,
-          'no-unnecessary-callback-wrapper': true,
-          'number-literal-format': true,
-          'prefer-conditional-expression': true,
-          'prefer-switch': true,
-          'prefer-while': true,
-          'return-undefined': true,
-          'strict-type-predicates': true,
-          'switch-final-break': true,
-        },
-      },
     ],
   },
 }
